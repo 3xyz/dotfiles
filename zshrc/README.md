@@ -1,21 +1,21 @@
-### Install dependencies
+### Install nerd font
 This config require some patched [fonts](https://www.nerdfonts.com/).
 ___
-#### zsh 
+### zsh 
 Install zsh (if not installed)
 ```
 apt install zsh
 ```
-Switch to zsh (if not switched) You can check which shell running by `echo $0` 
+### Switch to zsh (if not switched) You can check which shell running by `echo $0` 
 ```
 chsh -s /bin/zsh
 ```
-#### config
+### config
 Install config (WARNING: if you already have config command below rewrite it)
 ```
 curl -o ~/.zshrc https://raw.githubusercontent.com/3xyz/dotfiles/main/zshrc/.zshrc
 ```
-Install plugins
+### Install plugins
 ```
 mkdir ~/.zsh;
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k/;
@@ -26,7 +26,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf;
 curl -o ~/.zsh/command-not-found.zsh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/command-not-found/command-not-found.plugin.zsh;
 curl -o ~/.zsh/zsh-z.plugin.zsh https://raw.githubusercontent.com/agkozak/zsh-z/master/zsh-z.plugin.zsh;
 ```
-Then apply changes by:
+### Then apply changes by:
 ```
 source ~/.zshrc
 ```
