@@ -8,7 +8,7 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
 ```sh
 mkdir -p ~/.config/nvim/lua/castom;
 git clone --depth=1 git@github.com:3xyz/dotfiles.git;
-mv dotfiles/nvchad_config/* ~/.config/nvim/lua/custom/;
+mv dotfiles/nvchad_config/* ~/.config/nvim/lua/castom/;
 nvim
 ```
 ## Delete repository
