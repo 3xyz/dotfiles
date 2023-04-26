@@ -9,8 +9,7 @@ apt install zsh
 ```
 chsh -s /bin/zsh
 ```
-### config
-Install config (WARNING: if you already have config command below rewrite it)
+### Install config (WARNING: if you already have config command below rewrite it)
 ```
 curl -o ~/.zshrc https://raw.githubusercontent.com/3xyz/dotfiles/main/zshrc/.zshrc
 ```
