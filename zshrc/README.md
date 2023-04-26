@@ -23,7 +23,7 @@ git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/
 git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting;
 git clone --depth=1 https://github.com/unixorn/fzf-zsh-plugin.git ~/.zsh/fzf-zsh-plugin;
 curl -o ~/.zsh/command-not-found.zsh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/command-not-found/command-not-found.plugin.zsh;
-curl -o ~/zsh/zsh-z.plugin.zsh https://raw.githubusercontent.com/agkozak/zsh-z/master/zsh-z.plugin.zsh;
+curl -o ~/.zsh/zsh-z.plugin.zsh https://raw.githubusercontent.com/agkozak/zsh-z/master/zsh-z.plugin.zsh;
 ```
 Then apply changes by:
 ```
