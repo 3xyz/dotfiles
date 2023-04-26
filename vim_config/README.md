@@ -1,7 +1,7 @@
 ### Install dependencies
 Install config
 ```
-curl -o ~/.vimrc https://raw.githubusercontent.com/3xyz/vim/main/.vimrc
+curl -o ~/.vimrc https://raw.githubusercontent.com/3xyz/dotfiles/main/vim_config/.vimrc
 ```
 Vundle
 ```

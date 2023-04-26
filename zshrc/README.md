@@ -1,5 +1,5 @@
 ### Install dependencies
-This config require some patched [ fonts ](https://www.nerdfonts.com/).
+This config require some patched [fonts](https://www.nerdfonts.com/).
 ___
 #### zsh 
 Install zsh (if not installed)
@@ -11,17 +11,17 @@ Switch to zsh (if not switched) You can check which shell running by `echo $0`
 chsh -s /bin/zsh
 ```
 #### config
-Install config (WARNING: if you already have config command below rewrite .zshrc)
+Install config (WARNING: if you already have config command below rewrite it)
 ```
-curl -o ~/.zshrc https://raw.githubusercontent.com/3xyz/zshrc/main/.zshrc
+curl -o ~/.zshrc https://raw.githubusercontent.com/3xyz/dotfiles/main/zshrc/.zshrc
 ```
 Install plugins
 ```
 mkdir ~/.zsh;
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k/;
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions/;
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting;
-git clone https://github.com/unixorn/fzf-zsh-plugin.git ~/.zsh/fzf-zsh-plugin;
+git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions/;
+git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting;
+git clone --depth=1 https://github.com/unixorn/fzf-zsh-plugin.git ~/.zsh/fzf-zsh-plugin;
 curl -o ~/.zsh/command-not-found.zsh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/command-not-found/command-not-found.plugin.zsh;
 curl -o ~/zsh/zsh-z.plugin.zsh https://raw.githubusercontent.com/agkozak/zsh-z/master/zsh-z.plugin.zsh;
 ```
