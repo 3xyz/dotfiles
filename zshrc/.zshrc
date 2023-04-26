@@ -1,9 +1,3 @@
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/kali/.zshrc'
-autoload -Uz compinit
-compinit
-# -------------
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n] # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -18,7 +12,12 @@ alias vi=vim
 alias nv=nvim
 alias ..='cd ..'
 alias ../..='cd ../..'
-alias copy='xclip -sel clip'
+alias ll='ls -lh'
+alias la='ls -A'
+alias l='ls -CF'
+
+export CLICOLOR=1
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes
@@ -61,35 +60,35 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # enable color support of ls, less and man, and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
 
-  alias ls='ls --color=auto'
-  #alias dir='dir --color=auto'
-  #alias vdir='vdir --color=auto'
+    if [[ $(uname) == "Darwin" ]]; then
+      alias ls='ls -G'
+    else
+      alias ls='ls --color=auto'
+    fi
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
 
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-  alias diff='diff --color=auto'
-  alias ip='ip --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    alias diff='diff --color=auto'
+    alias ip='ip --color=auto'
 
-  export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
-  export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
-  export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-  export LESS_TERMCAP_so=$'\E[01;33m'    # begin reverse video
-  export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-  export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
-  export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+    export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
+    export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
+    export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+    export LESS_TERMCAP_so=$'\E[01;33m'    # begin reverse video
+    export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+    export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
+    export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-  # Take advantage of $LS_COLORS for completion as well
-  zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-  zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+    # Take advantage of $LS_COLORS for completion as well
+    zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 fi
-
-alias ll='ls -lh'
-alias la='ls -A'
-alias l='ls -CF'
 
 # initialize autocompletion
 autoload -U compinit
@@ -113,10 +112,7 @@ setopt share_history         # share command history data
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
-# GENERAL
-
 # (bonus: Disable sound errors in Zsh)
-
 # never beep
 setopt NO_BEEP
 
@@ -172,14 +168,11 @@ if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
    ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 fi
 
-if [[ -f ~/.zsh/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh ]]; then
-  source ~/.zsh/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh
-fi
-
 if [[ -f ~/.zsh/zsh-z.plugin.zsh ]]; then
   source ~/.zsh/zsh-z.plugin.zsh 
 fi
 
-if [ -f ~/.zsh/zsh_command_not_found.zsh ]; then
-  source ~/.zsh/zsh_command_not_found.zsh
+# Load Homebrew config script
+if [ -f ~/.brewconfig.zsh ]; then
+  source $HOME/.brewconfig.zsh
 fi
