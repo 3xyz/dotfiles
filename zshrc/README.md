@@ -27,5 +27,6 @@ curl -o ~/.zsh/zsh-z.plugin.zsh https://raw.githubusercontent.com/agkozak/zsh-z/
 ```
 source ~/.zshrc
 ```
-At first start plugin [powerlevel10k](https://github.com/romkatv/powerlevel10k#manual) suggest u to configure file.
-After configure all must works correctly.
+
+> At first start plugin [powerlevel10k](https://github.com/romkatv/powerlevel10k#manual) suggest u to configure file.
+> After configure all must works correctly.
