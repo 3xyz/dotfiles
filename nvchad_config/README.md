@@ -19,5 +19,5 @@ cp -r ./dotfiles/nvchad_config/* ~/.config/nvim/lua/castom
 ```
 ## Delete repository
 ```sh
-rm -rf dotfile/
+rm -rf dotfiles/
 ```
