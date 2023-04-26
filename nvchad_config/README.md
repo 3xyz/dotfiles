@@ -1,8 +1,8 @@
 ## Before install u need to remove paste config
 
 ```sh
-rm -rf ~/.local/share/nvim/*;
-rm -rf ~/.config/nvim/*
+rm -rf ~/.local/share/nvim/* ~/.local/share/nvim/.*;
+rm -rf ~/.config/nvim/* ~/.config/nvim/.*
 ```
 
 ## [NvChad](https://nvchad.com/docs/quickstart/install) installation (Linux/MaxOS)
