@@ -1,8 +1,7 @@
 ### Install nerd font
 This config require some patched [fonts](https://www.nerdfonts.com/).
 ___
-### zsh 
-Install zsh (if not installed)
+### Install zsh (if not installed)
 ```
 apt install zsh
 ```
