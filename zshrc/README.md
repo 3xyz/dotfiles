@@ -23,10 +23,11 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf;
 ~/.fzf/install --no-bash --no-fish;
 curl -o ~/.zsh/zsh-z.plugin.zsh https://raw.githubusercontent.com/agkozak/zsh-z/master/zsh-z.plugin.zsh;
 ```
+
+> At first start plugin [powerlevel10k](https://github.com/romkatv/powerlevel10k#manual) suggest u to configure file.
+> After configure all must works correctly.
+
 ### Then apply changes by:
 ```
 source ~/.zshrc
 ```
-
-> At first start plugin [powerlevel10k](https://github.com/romkatv/powerlevel10k#manual) suggest u to configure file.
-> After configure all must works correctly.
