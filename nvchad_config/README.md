@@ -13,9 +13,9 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
 
 ## Config installation
 ```sh
-mkdir -p ~/.config/nvim/lua/castom;
+mkdir -p ~/.config/nvim/lua/custom;
 git clone --depth=1 git@github.com:3xyz/dotfiles.git;
-cp -r ./dotfiles/nvchad_config/* ~/.config/nvim/lua/castom
+cp -r ./dotfiles/nvchad_config/* ~/.config/nvim/lua/custom
 ```
 ## Delete repository
 ```sh
