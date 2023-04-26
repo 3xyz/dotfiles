@@ -1,0 +1,2 @@
+Requered font:
+MesloLGS NF
