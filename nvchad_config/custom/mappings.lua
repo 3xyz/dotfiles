@@ -6,11 +6,13 @@ M.general = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<S-H>"] = {"gt", "go to prev tab"},
     ["<S-L>"] = {"gT", "go to next tab"},
+    -- ["<leader>fk"] = {"<cmd>Telescope keymaps<cr>", "find keymaps"},
     ["x"] = {'"_x', "cut without copy"},
     ["f"] = {"<Plug>(leap-forward-to)", "leap search forward"},
     ["F"] = {"<Plug>(leap-backward-to)", "leap search forward"},
     -- ["<leader>X"] = {"<cmd>lua require('spectre').open()<CR>", "run Spectre plugin"},
     ["<leader>k"] = {"<cmd>TroubleToggle<CR>", "TroubleToggle"},
+    ["<leader>fk"] = { "<cmd>Telescope keymaps<CR>", "Find keymaps" },
   },
   x = {
   },
@@ -20,28 +22,14 @@ M.general = {
     ["f"] = {"<Plug>(leap-forward-till)", "leap search forward"},
     ["F"] = {"<Plug>(leap-backward-till)", "leap search forward"},
   },
+  -- i = {
+  --   ["оо"] = {"<ESC>", ""},
+  -- },
 }
 
 -- more keybinds!
 
 M.dap = {
-    -- d = {
-    --   name = "Debug",
-    --   t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-    --   b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
-    --   c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-    --   C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
-    --   d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
-    --   g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
-    --   i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-    --   o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-    --   u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
-    --   p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
-    --   r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
-    --   s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
-    --   q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
-    --   U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
-    -- },
   n = {
     ["<leader>dt"] = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
     ["<leader>dR"] = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run to Cursor" },

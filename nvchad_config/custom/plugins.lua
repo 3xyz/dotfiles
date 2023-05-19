@@ -4,6 +4,7 @@ local overrides = require("custom.configs.overrides")
 local plugins = {
 
   -- Override plugin definition options
+
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -16,8 +17,8 @@ local plugins = {
       },
     },
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require("plugins.configs.lspconfig")
+      require("custom.configs.lspconfig")
     end, -- Override to setup mason-lspconfig
   },
   {
@@ -45,31 +46,23 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     -- enabled = false,
-    config = function()
-      require("custom.configs.dap").setup()
-      require("dap-python").setup("python", {})
-    end,
     lazy = true,
     dependencies = {
       "rcarriga/nvim-dap-ui",
+      -- "theHamsta/nvim-dap-virtual-text",
       "nvim-dap-virtual-text"
     },
+    config = function()
+      require("custom.configs.dap").setup()
+    end,
   },
   {
     "rcarriga/nvim-dap-ui",
     -- enabled = false,
-    config = function()
-      require("dapui").setup()
-    end,
+    -- config = function()
+    --   require("custom.configs.dapui")
+    -- end,
     lazy = true,
-  },
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    -- enabled = false,
-    config = function()
-      require("nvim-dap-virtual-text").setup()
-    end,
-    lazy = false,
   },
   -- dap python
   {
@@ -77,25 +70,49 @@ local plugins = {
     -- enabled = false,
     ft = "python",
     dependencies = {
-      { "rcarriga/nvim-dap-ui" },
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
     },
     config = function()
-      require("dap-python").setup("~/Desktop/usefull_things/venv/bin/activate")
+      require("dap-python").setup("~/Desktop/usefull_things/venv/bin/python3")
     end,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    enabled = true,
+    lazy = false,
+    -- lazy = true,
+  },
+  {
+    "lunarvim/bigfile.nvim",
+    lazy = false,
+    enabled = false
+  },
+  {
+    "powerman/vim-plugin-ruscmd",
+    lazy = false,
+    enabled = true,
   },
   -- override plugin configs
   {
     "williamboman/mason.nvim",
     opts = overrides.mason
   },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
+
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
+
+  -- {
+  --   ""
+  -- },
+
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
@@ -111,6 +128,13 @@ local plugins = {
   --   enabled = false
   -- },
 
+  -- All NvChad plugins are lazy-loaded by default
+  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
+  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   lazy = false,
+  -- }
 }
 
 return plugins

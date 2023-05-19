@@ -5,9 +5,9 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "palenight",
-  theme_toggle = { "palenight", "one_light" },
-  transparency = true,
+  theme = "chadracula",
+  theme_toggle = { "chadracula", "one_light" },
+  transparency = false,
   statusline = {
     theme = "minimal",
     separator_style = "block",
@@ -20,4 +20,5 @@ M.plugins = "custom.plugins"
 
 -- check core.mappings for table structure
 M.mappings = require "custom.mappings"
+
 return M
