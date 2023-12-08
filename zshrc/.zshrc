@@ -1,3 +1,12 @@
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/kali/.zshrc'
+autoload -Uz compinit
+compinit
+# ------------- compdef _gf gf
+function _gf {
+  _arguments "1: :($(gf -list))"
+}
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n] # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -10,17 +19,30 @@ source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 
 alias vi=vim
 alias nv=nvim
-alias ..='cd ..'
-alias ../..='cd ../..'
+alias avenv='source ./venv/bin/activate'
+alias copy='xclip -sel clip'
+alias sudo_kali='sudo -E env PATH=$PATH '
+# alias sudo='sudo -E env PATH=$PATH '
+alias aix='aix -silent -duc'
+alias pack-this='tar -czvf packed.tar.gz'
+alias git-push='git add .; git commit -m "fixes"; git push origin'
+alias sort-l="awk '{ print length, \$0 }' | sort -n | cut -d ' ' -f2-"
+alias tree="tree -I __pycache__ -I venv"
+alias xxh='xxh +s fish'
+
+alias dockeri='docker images'
+alias dockerc='docker ps -a'
+
 alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
 
-export CLICOLOR=1
-export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+alias pagodo='pagodo -g ~/tools/pagodo/dorks/all_google_dorks.txt'
+
+PYTHON_VENV='/home/kali/Desktop/usefull_things/venv'
 
 setopt autocd              # change directory just by typing its name
-#setopt correct            # auto correct mistakes
+# setopt correct             # auto correct mistakes
 setopt interactivecomments # allow comments in interactive mode
 setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
 setopt nonomatch           # hide error message if there is no match for the pattern
@@ -60,34 +82,30 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # enable color support of ls, less and man, and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
 
-    if [[ $(uname) == "Darwin" ]]; then
-      alias ls='ls -G'
-    else
-      alias ls='ls --color=auto'
-    fi
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+  alias ls='ls --color=auto'
+  #alias dir='dir --color=auto'
+  #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-    alias diff='diff --color=auto'
-    alias ip='ip --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+  alias diff='diff --color=auto'
+  alias ip='ip --color=auto'
 
-    export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
-    export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
-    export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-    export LESS_TERMCAP_so=$'\E[01;33m'    # begin reverse video
-    export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-    export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
-    export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+  export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
+  export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
+  export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+  export LESS_TERMCAP_so=$'\E[01;33m'    # begin reverse video
+  export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+  export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
+  export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-    # Take advantage of $LS_COLORS for completion as well
-    zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+  # Take advantage of $LS_COLORS for completion as well
+  zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+  zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 fi
 
 # initialize autocompletion
@@ -98,21 +116,25 @@ autoload -U compinit
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 HISTFILE=$HOME/.zsh_history
-SAVEHIST=10000
-HISTSIZE=9000
+SAVEHIST=100000
+HISTSIZE=100000
+setopt INC_APPEND_HISTORY # Append to history immediately
+setopt HIST_SAVE_NO_DUPS
 setopt EXTENDED_HISTORY
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups       # ignore duplicated commands history list
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_verify            # show command with history expansion to user before running it
-# setopt share_history         # share command history data
-setopt share_history         # share command history data
+setopt HIST_EXPIRE_DUPS_FIRST # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt HIST_IGNORE_DUPS       # ignore duplicated commands history list
+setopt HIST_IGNORE_SPACE      # ignore commands that start with space
+setopt HIST_VERIFY            # show command with history expansion to user before running it
+setopt share_history          # share command history data
 
 # autocompletion using arrow keys (based on history)
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
+# GENERAL
+
 # (bonus: Disable sound errors in Zsh)
+
 # never beep
 setopt NO_BEEP
 
@@ -168,11 +190,38 @@ if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
    ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 fi
 
+if [ -f ~/.zsh/zsh_command_not_found.zsh ]; then
+  . ~/.zsh/zsh_command_not_found.zsh
+fi
+
+if [[ -f ~/.zsh/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh ]]; then
+  source ~/.zsh/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh
+fi
+
 if [[ -f ~/.zsh/zsh-z.plugin.zsh ]]; then
   source ~/.zsh/zsh-z.plugin.zsh 
 fi
 
-# Load Homebrew config script
-if [ -f ~/.brewconfig.zsh ]; then
-  source $HOME/.brewconfig.zsh
+if [[ -f "$PYTHON_VENV/bin/activate" ]]; then
+  source "$PYTHON_VENV/bin/activate"
 fi
+
+export EDITOR="/usr/local/bin/nvim"
+
+# export PATH="$PATH:/home/kali/pentest_utils"
+# export PATH="$PATH:/home/kali/venvs"
+# export PATH="$PATH:/home/kali/.local/bin"
+# export PATH="$PATH:/opt/go/bin"
+# export PATH="$PATH:/home/kali/.local/share/nvim/mason/bin"
+# export PATH="$PATH:/opt/python3.9/bin"
+# export PATH="$PATH:/home/kali/go/bin"
+# export PATH="$PATH:/home/kali/.pdtm/go/bin"
+
+export PATH="/home/kali/pentest_utils:$PATH"
+export PATH="/home/kali/venvs:$PATH"
+export PATH="/home/kali/.local/bin:$PATH"
+export PATH="/opt/go/bin:$PATH"
+export PATH="/home/kali/.local/share/nvim/mason/bin:$PATH"
+export PATH="/opt/python3.9/bin:$PATH"
+export PATH="/home/kali/go/bin:$PATH"
+export PATH="/home/kali/.pdtm/go/bin:$PATH"

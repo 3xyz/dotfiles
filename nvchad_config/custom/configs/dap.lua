@@ -96,7 +96,8 @@ local function configuration()
   end
   -- vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
   -- vim.fn.sign_define("DapBreakpoint", { text = "👀", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-  vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+  -- vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+  vim.fn.sign_define("DapBreakpoint", { text = "🖕", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
   vim.fn.sign_define("DapStopped", { text = "▶️", texthl = "", linehl = "", numhl = "" })
   local dap_virtual_text_status = require("nvim-dap-virtual-text")
   dap_virtual_text_status.setup({

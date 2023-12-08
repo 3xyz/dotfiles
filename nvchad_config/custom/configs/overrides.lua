@@ -1,7 +1,9 @@
 local M = {}
 
+-- Beautifull syntax
 M.treesitter = {
   ensure_installed = {
+    "json",
     "vim",
     "lua",
     "html",
@@ -12,12 +14,13 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    "sql",
   },
   indent = {
     enable = true,
-    -- disable = {
-    --   "python"
-    -- },
+    disable = {
+      "python"
+    },
   },
 }
 
@@ -37,6 +40,23 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- *sh
+    "beautysh",
+
+    -- C lang
+    "clang_format",
+
+    -- json
+    "fixjson",
+    "jq",
+
+    -- sql
+    "sqlls",
+
+    -- python
+    "black",
+    "reorder_python_imports",
   },
 }
 
@@ -45,7 +65,6 @@ M.nvimtree = {
   git = {
     enable = true,
   },
-
   renderer = {
     highlight_git = true,
     icons = {
