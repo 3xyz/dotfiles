@@ -31,15 +31,14 @@ local sources = {
   -- Python
   -- b.formatting.black.with { filetypes = { "python" } },
   -- b.formatting.yapf.with { extra_args = { "--style", "google" }, filetypes = { "python" } },
-
   b.formatting.yapf.with {
-    extra_args = {
-      "--style",
-      "{based_on_style: pep8, indent_width: 2, column_limit: 125, DEDENT_CLOSING_BRACKETS: 1, SPLIT_ALL_COMMA_SEPARATED_VALUES: 1, COALESCE_BRACKETS: 1}",
+    extra_args = { 
+      "--style", "{based_on_style: pep8, indent_width: 2, column_limit: 140, DEDENT_CLOSING_BRACKETS: 1}"
     },
     filetypes = { "python" },
   },
   b.formatting.reorder_python_imports.with { filetypes = { "python" } },
+  b.diagnostics.ruff,
 
   -- Lua
   b.formatting.stylua,

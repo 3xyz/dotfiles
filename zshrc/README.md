@@ -8,7 +8,7 @@ chsh -s /bin/zsh
 ```
 ### Install config (WARNING: if you already have config command below rewrite it)
 ```
-curl -o ~/.zshrc https://raw.githubusercontent.com/3xyz/dotfiles/main/zshrc/.zshrc
+curl -o ~/.zshrc https://raw.githubusercontent.com/3xyz/dotfiles/main/zshrc/zshrc
 ```
 ### Install plugins
 ```

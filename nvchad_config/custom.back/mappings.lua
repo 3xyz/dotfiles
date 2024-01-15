@@ -4,8 +4,8 @@ local M = {}
 M.general = {
    n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<S-L>"] = {"gt", "go to prev tab"},
-    ["<S-H>"] = {"gT", "go to next tab"},
+    ["<S-H>"] = {"gt", "go to prev tab"},
+    ["<S-L>"] = {"gT", "go to next tab"},
     -- ["<leader>fk"] = {"<cmd>Telescope keymaps<cr>", "find keymaps"},
     ["x"] = {'"_x', "cut without copy"},
     ["f"] = {"<Plug>(leap-forward-to)", "leap search forward"},

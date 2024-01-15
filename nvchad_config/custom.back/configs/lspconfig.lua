@@ -6,10 +6,8 @@ local lspconfig = require "lspconfig"
 -- if you just want default config for the servers then put them in a tab::le
 local servers = { "html", "cssls", "tsserver", "clangd", "pyright", "bashls", "jsonls", "spectral", "sqlls" }
 -- local servers = { "html", "cssls", "tsserver", "clangd", "pylsp", "bashls", "jsonls", "spectral", "sqlls" }
--- local servers = { "html", "cssls", "tsserver", "clangd", "ruff_lsp", "bashls", "jsonls", "spectral", "sqlls" }
--- local servers = { "html", "cssls", "tsserver", "clangd", "pylyzer", "bashls", "jsonls", "spectral", "sqlls" }
--- local servers = { "html", "cssls", "tsserver", "clangd", "jedi_language_server", "bashls", "jsonls", "spectral", "sqlls" }
 -- local servers = { "html", "cssls", "tsserver", "clangd", "bashls", "jsonls", "spectral", "sqlls" }
+-- local servers = { "html", "ash-language-server", "cssls", "tsserver", "clangd", "pyright" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -17,18 +15,6 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-
--- lspconfig.ruff_lsp.setup {
---   on_attach = on_attach,
---   init_options = {
---     settings = {
---       -- Any extra CLI arguments for `ruff` go here.
---       args = {},
---     }
---   }
--- }
-
--- extra_args = { "--indent-after-paren", "2" }
 
 -- lspconfig.pylsp.setup {
 --   on_attach = on_attach,
@@ -38,25 +24,20 @@ end
 --         -- formatter options
 --         black = { enabled = false },
 --         autopep8 = { enabled = false },
---         yapf = { enabled = false },
+--         yapf = { enabled = true },
 --         -- linter options
 --         pylint = {
---           enabled = false,
+--           enabled = true,
 --           executable = "pylint",
---           args = {
---             "--indent-string", "  "
---           },
 --         },
 --         pyflakes = { enabled = false },
---         pycodestyle = {
---           enabled = false,
---         },
+--         pycodestyle = { enabled = false },
 --         -- type checker
---         pylsp_mypy = { enabled = false },
+--         pylsp_mypy = { enabled = true },
 --         -- auto-completion options
---         jedi_completion = { fuzzy = false },
+--         jedi_completion = { fuzzy = true },
 --         -- import sorting
---         pyls_isort = { enabled = false },
+--         pyls_isort = { enabled = true },
 --       },
 --     },
 --   },

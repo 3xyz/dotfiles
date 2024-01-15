@@ -17,9 +17,18 @@ source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+cpath() {
+  realpath $1 && realpath $1 | head -n 1 | head -c -1 | copy
+}
+
+# alias wrap_args='sh -c '\''echo before "$1" after'\'' _'
+
+alias spidernan_recon='spidernan --skip_update -s 145678'
 alias vi=vim
 alias nv=nvim
+alias nvim='/opt/nvim-linux64/bin/nvim'
 alias avenv='source ./venv/bin/activate'
+alias ai-venv='source /home/kali/Desktop/MyScripts/ai/tictactoe_self_learning/venv/bin/activate'
 alias copy='xclip -sel clip'
 alias sudo_kali='sudo -E env PATH=$PATH '
 # alias sudo='sudo -E env PATH=$PATH '
@@ -205,6 +214,9 @@ fi
 if [[ -f "$PYTHON_VENV/bin/activate" ]]; then
   source "$PYTHON_VENV/bin/activate"
 fi
+
+export CENSYS_API_ID="39022825-3212-4f53-b799-d6411d3af2f8"
+export CENSYS_API_SECRET="KhYX7JTFHO4DQ6JUqvZN429IiyjTwTKq"
 
 export EDITOR="/usr/local/bin/nvim"
 
